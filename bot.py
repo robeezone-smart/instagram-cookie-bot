@@ -724,7 +724,7 @@ def main():
         name="admin_flow", persistent=False
     )
     
-    app.add_handler(CommandHandler("start", start))
+        app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("admin", admin_panel))
     
     # P.R.C. BD ওনারশিপ ক্রেডিট কমান্ড হ্যান্ডলারসমূহ
@@ -744,7 +744,7 @@ def main():
     app.add_handler(MessageHandler(filters.Regex("^(📊 Status|👑 VIP User|📁 Export Excel|🔌 Toggle Cookie|🔙 Main Menu)$"), admin_actions_router))
     
     print("Bot system initialized and running smoothly with Database Persistence...")
-    app.run_polling()
+    app.run_polling(read_timeout=30, write_timeout=30, connect_timeout=30, pool_timeout=30)
 
 if __name__ == "__main__":
     main()
